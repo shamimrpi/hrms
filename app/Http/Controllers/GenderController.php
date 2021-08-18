@@ -3,19 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Religion;
+use App\Gender;
 
-class ReligionController extends Controller
+class GenderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
+      /*** Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $religions = Religion::all();
-        return view('religion.index',compact('religions'));
+        $genders = Gender::all();
+        return view('gender.index',compact('genders'));
     }
 
     /**
@@ -25,7 +24,7 @@ class ReligionController extends Controller
      */
     public function create()
     {
-        return view('religion.create');
+        return view('gender.create');
     }
 
     /**
@@ -37,13 +36,13 @@ class ReligionController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'name'=> 'required|min:2|max:20|unique:religions',
+            'name'=> 'required|min:2|max:20|unique:genders',
         ]);
-        $religion = new Religion();
-        $religion->name = $request->name;
-        $religion->save();
-        flash('Religion created successfully')->success();
-        return redirect()->route('religion.index');
+        $gender = new Gender();
+        $gender->name = $request->name;
+        $gender->save();
+        flash('gender created successfully')->success();
+        return redirect()->route('gender.index');
     }
 
     /**
@@ -66,8 +65,8 @@ class ReligionController extends Controller
     public function edit($id)
     {
 
-        $religion = Religion::findOrFail($id);
-        return view('religion.edit',compact('religion'));
+        $gender = Gender::findOrFail($id);
+        return view('gender.edit',compact('gender'));
     }
 
     /**
@@ -80,13 +79,13 @@ class ReligionController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'name'=> 'required|min:2|max:20|unique:religions,id',
+            'name'=> 'required|min:2|max:20|unique:genders,id',
         ]);
-        $religion = Religion::findOrFail($id);
-        $religion->name = $request->name;
-        $religion->save();
-        flash('Religion updated successfully')->success();
-        return redirect()->route('religion.index');
+        $gender = Gender::findOrFail($id);
+        $gender->name = $request->name;
+        $gender->save();
+        flash('gender updated successfully')->success();
+        return redirect()->route('gender.index');
     }
 
     /**

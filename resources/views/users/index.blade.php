@@ -1,16 +1,17 @@
 @extends('main.template')
+
 @section('main_content')
 
   <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Religion List</h1>
+            <h1 class="m-0">User List</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Home</a></li>
-              <li class="breadcrumb-item active">Religion List</li>
+              <li class="breadcrumb-item active">User List</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -25,10 +26,10 @@
 
             <div class="card card-primary card-outline">
               <div class="card-body">
-                <h5 class="card-title">Religion List</h5>
+                <h5 class="card-title">User List</h5>
                 <br><br>
 
-                  <a href="{{route('religion.create')}}" class="btn btn-info fa fa-plus"> Add Religion</a>
+                  <a href="{{route('users.create')}}" class="btn btn-info fas fa-plus"> Add User</a>
                 <br>
                 <br>
                   <table id="example2" class="table table-bordered table-striped">
@@ -36,18 +37,30 @@
                         <tr>
                           <th>#SL</th>
                           <th>Name</th>
+                          <th>Staff ID</th>
+                          <th>Father's Name</th>
+                        
+                          <th>Code</th>
+                            <th>Status</th>
+                          <th>Mobile</th>
                           <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                        @if($religions)
-                          @foreach($religions as $key => $religion)
+                        @if($users)
+                          @foreach($users as $key => $user)
                           <tr>
                             <td>{{$key+1}}</td>
-                            <td>{{$religion->name}}</td>
+                            <td>{{$user->name}}</td>
+                            <td>{{$user->staff_id}}</td>
+                            <td>{{$user->f_name}}</td>
+                            <td>{{$user->code}}</td>
+
+                            <td class="text-center"><a class="btn btn-{{(@$user->status == true)?'primary':'danger'}}" tooltip="active/deactive" href="{{route('employee.status',$user->id)}}" >{{(@$user->status == true)?'Active':'Inactive'}}</a></td>
+                            <td>{{$user->mobile}}</td>
                             <td>
-                              <a href="{{route('religion.edit',$religion->id)}}" class="btn btn-info fa fa-edit"></a>
-                            
+                              <a href="{{route('users.edit',$user->id)}}" class="btn btn-info fa fa-edit"></a>
+                              <a href="{{route('users.show',$user->id)}}" class="btn btn-info fa fa-eye"></a>
                                
                               </form>
                               
@@ -58,8 +71,15 @@
                       </tbody>
                       <tfoot>
                          <tr>
+                        
                           <th>#SL</th>
                           <th>Name</th>
+                          <th>Staff ID</th>
+                          <th>Father's Name</th>
+                          
+                          <th>Code</th>
+                          <th>Status</th>
+                          <th>Mobile</th>
                           <th>Action</th>
                         </tr>
                       </tfoot>

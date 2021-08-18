@@ -17,8 +17,8 @@
   <link rel="stylesheet" href="{{asset('public/assets')}}/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- JQVMap -->
   <link rel="stylesheet" href="{{asset('public/assets')}}/plugins/jqvmap/jqvmap.min.css">
-  <!-- Theme style -->
-
+  <!-- date picker style -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{{asset('public/assets')}}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
@@ -28,47 +28,11 @@
   <link rel="stylesheet" href="{{asset('public/assets')}}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="{{asset('public/assets')}}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="{{asset('public/assets')}}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+   <link rel="stylesheet" href="{{asset('public/assets')}}/css/select2.min.css">
   <link rel="stylesheet" href="{{asset('public/assets')}}/dist/css/adminlte.min.css">
+<link rel="stylesheet" type="text/css" href="{{asset('public/assets')}}/css/custom.css">
 
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-notify/0.2.0/css/bootstrap-notify.css">  
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-notify/0.2.0/js/bootstrap-notify.js"></script>  
-  <script>  
-  @if(Session::has('success'))  
-     $('.top-right').notify({  
-        message: { text: "{{ Session::get('success') }}" }  
-      }).show();  
-     @php  
-       Session::forget('success');  
-     @endphp  
-  @endif  
-  @if(Session::has('info'))  
-      $('.top-right').notify({  
-        message: { text: "{{ Session::get('info') }}" },  
-        type:'info'  
-      }).show();  
-      @php  
-        Session::forget('info');  
-      @endphp  
-  @endif  
-  @if(Session::has('warning'))  
-        $('.top-right').notify({  
-        message: { text: "{{ Session::get('warning') }}" },  
-        type:'warning'  
-      }).show();  
-      @php  
-        Session::forget('warning');  
-      @endphp  
-  @endif  
-  @if(Session::has('error'))  
-        $('.top-right').notify({  
-        message: { text: "{{ Session::get('error') }}" },  
-        type:'danger'  
-      }).show();  
-      @php  
-        Session::forget('error');  
-      @endphp  
-  @endif  
-</script>  
+  
+  
  
   

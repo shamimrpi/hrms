@@ -2,21 +2,38 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReligionController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\GenderController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CommonController;
+use App\Http\Controllers\IncrementController;
 
+
+
+
+Route::get('/login','LoginController@login')->name('login');
+Route::post('/login/confirm','LoginController@loginConfirm')->name('login.confirm');
+Route::middleware(['auth'])->group(function () {
 Route::get('/', function () {
-    return view('/dashboard');
-})->name('dashboard');
+    return view('/dashboard');})->name('dashboard');
 
-Route::resource('/religion','ReligionController');
+	Route::prefix('Setup')->group(function(){	
+		Route::resource('/religion','ReligionController');
+		Route::resource('/gender','GenderController');
+		Route::resource('/users','UserController');
+	});	
+	Route::prefix('Admin')->group(function(){
+		Route::get('/employee/status/{id}','CommonController@userStatus')->name('employee.status');
+		Route::get('/promotion','CommonController@promotion')->name('promotion');
+		Route::get('/promotion/edit/{employee_id}','CommonController@promotionEdit')->name('promotion.edit');
+		Route::put('/promotion/update/{employee_id}','CommonController@promotionUpdate')->name('promotion.update');
+		Route::get('/incement','IncrementController@index')->name('increment');
+		Route::get('/incement/{employee_id}','IncrementController@edit')->name('increment.edit');
+		Route::put('/incement/update/{employee_id}','IncrementController@update')->name('increment.update');
+
+
+		
+	});
+	Route::get('/logout','LoginController@logout')->name('logout');
+});
 
 

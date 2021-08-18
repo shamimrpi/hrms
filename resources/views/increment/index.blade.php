@@ -1,4 +1,5 @@
 @extends('main.template')
+
 @section('main_content')
 
   <div class="content-header">
@@ -25,44 +26,49 @@
 
             <div class="card card-primary card-outline">
               <div class="card-body">
-                <h5 class="card-title">Religion List</h5>
+                <h5 class="card-title">Promotion Employe List</h5>
                 <br><br>
 
-                  <a href="{{route('religion.create')}}" class="btn btn-info fa fa-plus"> Add Religion</a>
+                  
                 <br>
                 <br>
                   <table id="example2" class="table table-bordered table-striped">
                       <thead>
                         <tr>
                           <th>#SL</th>
+                          <th>Employee ID</th>
+                          <th>Staff Id</th>
                           <th>Name</th>
+                          <th>Designation</th>
+                           <th>Salary</th>
                           <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                        @if($religions)
-                          @foreach($religions as $key => $religion)
+                       @php
+                       
+                       @endphp
+                          @foreach($increments as $key => $increment)
                           <tr>
                             <td>{{$key+1}}</td>
-                            <td>{{$religion->name}}</td>
-                            <td>
-                              <a href="{{route('religion.edit',$religion->id)}}" class="btn btn-info fa fa-edit"></a>
+                            <td>{{$increment->employee_id}}</td>
+                            <td>{{$increment->employee->staff_id}}</td>
+                            <td>{{$increment->employee->name}}</td>
+                            <td>{{$increment->employee->designation->name}}</td>
+                            <td>{{$increment->employee->salary}}</td>
                             
+                            <td>
+                              <a href="{{route('increment.edit',$increment->employee_id)}}" tooltip="Increment" class="btn btn-info">Increment</a>
+                              
                                
-                              </form>
+                             
                               
                             </td>
                           </tr>
                           @endforeach
-                        @endif
+                      
                       </tbody>
-                      <tfoot>
-                         <tr>
-                          <th>#SL</th>
-                          <th>Name</th>
-                          <th>Action</th>
-                        </tr>
-                      </tfoot>
+                      
                   </table>
                 
               </div>

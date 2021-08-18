@@ -25,10 +25,10 @@
 
             <div class="card card-primary card-outline">
               <div class="card-body">
-                <h5 class="card-title">Religion List</h5>
+                <h5 class="card-title">Gender List</h5>
                 <br><br>
 
-                  <a href="{{route('religion.create')}}" class="btn btn-info fa fa-plus"> Add Religion</a>
+                  <a href="{{route('gender.create')}}" class="btn btn-info fa fa-plus"> Add Gender</a>
                 <br>
                 <br>
                   <table id="example2" class="table table-bordered table-striped">
@@ -40,13 +40,13 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @if($religions)
-                          @foreach($religions as $key => $religion)
+                        @if($genders)
+                          @foreach($genders as $key => $gender)
                           <tr>
                             <td>{{$key+1}}</td>
-                            <td>{{$religion->name}}</td>
+                            <td>{{$gender->name}}</td>
                             <td>
-                              <a href="{{route('religion.edit',$religion->id)}}" class="btn btn-info fa fa-edit"></a>
+                              <a href="{{route('gender.edit',$gender->id)}}" class="btn btn-info fa fa-edit"></a>
                             
                                
                               </form>

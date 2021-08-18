@@ -29,12 +29,12 @@
 <script src="{{asset('public/assets')}}/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('public/assets')}}/dist/js/adminlte.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('public/assets')}}/dist/js/demo.js"></script>
+
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('public/assets')}}/dist/js/pages/dashboard.js"></script>
 <script src="{{asset('public/assets')}}/js/notify.js"></script>
-<script src="{{asset('public/assets')}}/js/validate.min.js"></script>
+<script src="{{asset('public/assets')}}/js/jquery.validate.min.js"></script>
+<script src="{{asset('public/assets')}}/js/select2.min.js"></script>
 
 <script src="{{asset('public/assets')}}/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="{{asset('public/assets')}}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -48,6 +48,8 @@
 <script src="{{asset('public/assets')}}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="{{asset('public/assets')}}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="{{asset('public/assets')}}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- date picker -->
+
 <script>
   $(function () {
     $("#example1").DataTable({
@@ -65,3 +67,10 @@
     });
   });
 </script>
+<script type="text/javascript">
+ $('select').select2({
+  placeholder: 'This is my placeholder',
+  allowClear: true
+});
+</script>
+
