@@ -95,6 +95,12 @@
                   <p>Employee Increment</p>
                 </a>
               </li>
+                <li class="nav-item">
+                <a href="{{route('leave')}}" class="nav-link {{($route == 'leave')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Leave</p>
+                </a>
+              </li>
             
               
             </ul>

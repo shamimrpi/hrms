@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
 	        DesignationSeeder::class,
-	     
+	        LeaveTypeSeeder::class,
     	]);
     }
 }

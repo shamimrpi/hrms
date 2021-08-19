@@ -6,7 +6,7 @@ use App\Http\Controllers\GenderController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\IncrementController;
-
+use App\Http\Controllers\LeaveController;
 
 
 
@@ -29,9 +29,10 @@ Route::get('/', function () {
 		Route::get('/incement','IncrementController@index')->name('increment');
 		Route::get('/incement/{employee_id}','IncrementController@edit')->name('increment.edit');
 		Route::put('/incement/update/{employee_id}','IncrementController@update')->name('increment.update');
-
-
 		
+		Route::get('/leave','LeaveController@index')->name('leave');
+		Route::get('/leave/create','LeaveController@create')->name('leave.create');
+		Route::post('/leave/store','LeaveController@store')->name('leave.store');
 	});
 	Route::get('/logout','LoginController@logout')->name('logout');
 });

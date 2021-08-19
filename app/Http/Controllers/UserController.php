@@ -9,6 +9,7 @@ use App\Gender;
 use App\Designation;
 use App\Promotion;
 use App\Increment;
+use App\LeaveBalance;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
@@ -46,12 +47,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        
         $this->validate($request,[
             'name'=> 'required|max:50|min:3',
             'mobile' => 'required|min:11|max:13|unique:users',
             'f_name'=> 'required|max:50|min:3',
             'm_name'=> 'required|max:50|min:3',
         ]);
+       
+
             $user = User::where('usertype','employee')->orderBy('id','DESC')->first();
             $year = date('Y',strtotime($request->join_date));
                 if($user == NULL){
@@ -102,6 +106,8 @@ class UserController extends Controller
             $user->created_by = Auth::id();
             $user->updated_by = Auth::id();
             $user->save();
+
+            // Promotion table insert
             $promotion = new Promotion();
             $promotion->employee_id = $user->id;
             $promotion->staff_id = $user->staff_id;
@@ -113,7 +119,7 @@ class UserController extends Controller
             $promotion->updated_by = Auth::id();
             $promotion->save();
 
-
+            // increment table insert
             $increment = new Increment();
             $increment->staff_id = $user->staff_id;
             $increment->employee_id = $user->id;
@@ -123,8 +129,74 @@ class UserController extends Controller
             $increment->updated_by = Auth::id();
             $increment->created_by = Auth::id();
             $increment->save();
+
+          // leave balance table
+
+            $join_date_balance = date('m',strtotime($request->join_date));
+            $join_date_balance = (int)$join_date_balance;
+          
+            if($join_date_balance == 1){
+                $balance = 10;
+            }
+            elseif($join_date_balance == 2){
+                $balance = 9;
+            }
+             elseif($join_date_balance == 3){
+                $balance = 8;
+            }
+             elseif($join_date_balance == 4){
+                $balance = 7;
+            }
+             elseif($join_date_balance ==5){
+                $balance = 6;
+            }
+             elseif($join_date_balance == 6){
+                $balance = 6;
+            }
+             elseif($join_date_balance == 7){
+                $balance = 5;
+            }
+             elseif($join_date_balance == 8){
+                $balance = 4;
+            }
+             elseif($join_date_balance == 9){
+                $balance = 3;
+            }
+             elseif($join_date_balance == 10){
+                $balance = 2;
+            }
+             elseif($join_date_balance == 11){
+                $balance = 1;
+            }
+             else{
+                $balance = 0;
+            }
+
+            $leave_balance = new LeaveBalance();
+            $leave_balance->employee_id = $user->id;
+            $leave_balance->staff_id = $user->staff_id;
+            $leave_balance->leave_type_id = 1;
+            $leave_balance->balance = $balance;
+            $leave_balance->save();
+
+            $leave_balance = new LeaveBalance();
+            $leave_balance->employee_id = $user->id;
+            $leave_balance->staff_id = $user->staff_id;
+            $leave_balance->leave_type_id = 2;
+            $leave_balance->balance = $balance;
+            $leave_balance->save();
+            
+            $leave_balance = new LeaveBalance();
+            $leave_balance->employee_id = $user->id;
+            $leave_balance->staff_id = $user->staff_id;
+            $leave_balance->leave_type_id = 3;
+            $leave_balance->balance = $balance;
+            $leave_balance->save();
+
             flash('User created successfully')->success();
             return redirect()->route('users.index');
+
+
         
 
     }

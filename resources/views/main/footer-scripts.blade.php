@@ -73,4 +73,9 @@
   allowClear: true
 });
 </script>
+<script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
 
