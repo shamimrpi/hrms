@@ -101,6 +101,14 @@
                   <p>Leave</p>
                 </a>
               </li>
+                <li class="nav-item">
+                <a href="{{route('attendance')}}" class="nav-link {{($route == 'attendance')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Attendance</p>
+                </a>
+              </li>
+
+
             
               
             </ul>

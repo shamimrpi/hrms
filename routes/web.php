@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\IncrementController;
 use App\Http\Controllers\LeaveController;
+use App\Http\Controllers\AttendanceControler;
 
 
 
@@ -33,6 +34,12 @@ Route::get('/', function () {
 		Route::get('/leave','LeaveController@index')->name('leave');
 		Route::get('/leave/create','LeaveController@create')->name('leave.create');
 		Route::post('/leave/store','LeaveController@store')->name('leave.store');
+
+		Route::get('/attendance','AttendanceControler@index')->name('attendance');
+		Route::get('/attendance/create','AttendanceControler@create')->name('attendance.create');
+		Route::post('/attendance/store','AttendanceControler@store')->name('attendance.store');
+		Route::get('/attendance/edit/{date}','AttendanceControler@edit')->name('attendance.edit');
+		Route::put('/attendance/update/{date}','AttendanceControler@update')->name('attendance.update');
 	});
 	Route::get('/logout','LoginController@logout')->name('logout');
 });

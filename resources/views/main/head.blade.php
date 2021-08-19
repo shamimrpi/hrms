@@ -24,7 +24,8 @@
   <!-- Daterange picker -->
   <link rel="stylesheet" href="{{asset('public/assets')}}/plugins/daterangepicker/daterangepicker.css">
    <!-- Date picker jquery ui -->
-  <link rel="stylesheet" href="{{asset('public/assets')}}/css/uquery.ui.css">
+  <link rel="stylesheet" href="{{asset('public/assets')}}/css/jquery-ui.css">
+
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('public/assets')}}/plugins/summernote/summernote-bs4.min.css">
   <link rel="stylesheet" href="{{asset('public/assets')}}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
@@ -32,6 +33,7 @@
   <link rel="stylesheet" href="{{asset('public/assets')}}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
    <link rel="stylesheet" href="{{asset('public/assets')}}/css/select2.min.css">
   <link rel="stylesheet" href="{{asset('public/assets')}}/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="{{asset('public/assets')}}/css/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="{{asset('public/assets')}}/css/custom.css">
 
   
