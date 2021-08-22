@@ -40,6 +40,9 @@ Route::get('/', function () {
 		Route::post('/attendance/store','AttendanceControler@store')->name('attendance.store');
 		Route::get('/attendance/edit/{date}','AttendanceControler@edit')->name('attendance.edit');
 		Route::put('/attendance/update/{date}','AttendanceControler@update')->name('attendance.update');
+		Route::get('/attendance/show/{date}','AttendanceControler@show')->name('attendance.show');
+		Route::get('/attendance/all','AttendanceControler@attendance')->name('attendance.all');
+		Route::post('/attendance/allShow','AttendanceControler@attendanceGetAll')->name('attendance.getall');
 	});
 	Route::get('/logout','LoginController@logout')->name('logout');
 });

@@ -25,28 +25,30 @@
 
             <div class="card card-primary card-outline">
               <div class="card-body">
-                <h5 class="card-title">Leave List</h5>
+                <h5 class="card-title">Attendance view</h5>
                 <br><br>
 
-                  <a href="{{route('attendance.create')}}" class="btn btn-info fa fa-plus"> Add Attendance</a>
+                  <a href="{{route('attendance')}}" class="btn btn-info fa fa-plus"> Attendance List</a>
                 <br>
                 <br>
                   <table id="example2" class="table table-bordered table-striped">
                       <thead class="text-center">
                         <tr>
                           <th>#SL</th>
-                       
+                          <th>Staff ID</th>
+                          <th>Name</th>
                           <th>Date</th>
-                          <th>Action</th>
+                          <th>Status</th>
                         </tr>
                       </thead>
                       <tbody class="text-center">
                         @foreach($attendances as $key=> $attendance)
                         <tr>
                           <td>{{$key+1}}</td>
+                          <td>{{$attendance->employee->staff_id}}</td>
+                          <td>{{$attendance->employee->name}}</td>
                           <td>{{date('d/m/Y',strtotime($attendance->date))}}</td>
-                          <td class="text-center"><a href="{{route('attendance.edit',$attendance->date)}}" class="btn btn-info"><i class="fa fa-edit">Edit</i></a>
-                           <a href="{{route('attendance.show',$attendance->date)}}" class="btn btn-info"><i class="fa fa-eye">View</i></a></td>
+                        <td>{{$attendance->status}}</td>
                         </tr>
                         @endforeach
                       </tbody>
