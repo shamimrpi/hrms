@@ -19,6 +19,7 @@ class CreateAttendancesTable extends Migration
             $table->string('staff_id')->nullable();
             $table->date('date')->nullable();
             $table->string('status')->nullable();
+            
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamps();

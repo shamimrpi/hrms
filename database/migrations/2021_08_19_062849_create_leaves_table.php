@@ -21,7 +21,8 @@ class CreateLeavesTable extends Migration
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
             $table->string('reason')->nullable();
-            $table->boolean('status')->nullable();
+            $table->string('status')->nullable();
+      
             $table->double('days')->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();

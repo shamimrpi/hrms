@@ -101,10 +101,23 @@
                   <p>Leave</p>
                 </a>
               </li>
+               </li>
+                <li class="nav-item">
+                <a href="{{route('leave.approve')}}" class="nav-link {{($route == 'leave.approve')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Leave Approve</p>
+                </a>
+              </li>
                 <li class="nav-item">
                 <a href="{{route('attendance')}}" class="nav-link {{($route == 'attendance')?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Attendance</p>
+                </a>
+              </li>
+                <li class="nav-item">
+                <a href="{{route('attendance.all')}}" class="nav-link {{($route == 'attendance.all')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Monthly Attendance</p>
                 </a>
               </li>
 

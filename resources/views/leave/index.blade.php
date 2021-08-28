@@ -28,7 +28,7 @@
                 <h5 class="card-title">Leave List</h5>
                 <br><br>
 
-                  <a href="{{route('leave.create')}}" class="btn btn-info fa fa-plus"> Add Leave</a>
+                  <a href="{{route('leave.create')}}" class="btn btn-info"><i class="fa fa-plus"></i> Add Leave</a>
                 <br>
                 <br>
                   <table id="example2" class="table table-bordered table-striped">
@@ -56,12 +56,24 @@
                             <td>{{$leave->days}}</td>
                              <td>{{date('d-m-Y',strtotime($leave->start_date))}} to {{date('d-m-Y',strtotime($leave->end_date))}}</td>
                             <td>{{$leave->reason}}</td>
-                            <td>{{(@$leave->status == true)?'Approved':'Pending'}}</td>
                             <td>
-                              <a href="#" class="btn btn-info fa fa-edit"></a>
-                            
-                               
-                              </form>
+                             {{$leave->status}}
+                            </td>
+
+                            <td>
+                              <?php if($leave->status == 'Pending') { ?>
+                                <a href="{{route('leave.edit',$leave->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit">Edit</i></a>
+                                <a href="{{route('leave.delete',$leave->id)}}" class="btn btn-danger btn-sm"><i class="fa fa-trash"> Delete</i></a>
+                              <?php }
+                             
+                              elseif ($leave->status == 'Approve') {?>
+                                 <button class="btn btn-info btn-sm" disabled=""><i class="fa fa-edit"></i> Edit</button>
+                                  <button class="btn btn-danger btn-sm" disabled=""><i class="fa fa-trash"></i> Delete</button>
+                             <?php }else{?>
+                                <button class="btn btn-info btn-sm" disabled=""><i class="fa fa-edit"></i> Edit</button>
+                                  <button class="btn btn-danger btn-sm" disabled=""><i class="fa fa-trash"></i> Delete</button>
+                             <?php }?>
+
                               
                             </td>
                           </tr>

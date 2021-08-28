@@ -84,14 +84,17 @@ class AttendanceControler extends Controller
         return view('attendance.attendance',compact('users'));
     }
     public function attendanceGetAll(Request $r){
-       
+   
        $date = date('Y-m',strtotime($r->date));
        if($date != ''){
             $where[] = ['date','like',$date.'%'];
         }
-        $attendance = Attendance::with('employee')->where('employee_id',$r->employee_id)->where($where)->orderby('date','ASC')->get();
-
-     
-        return response()->json($attendance);
+        $attendances = Attendance::where('employee_id',$r->employee_id)->where($where)->orderby('date','ASC')->get();
+        $employee_id = $r->employee_id;
+        $employee_name = User::where('id',$employee_id)->first()->name;
+         $users = User::all();
+        return view('attendance.attendance',compact('attendances','users','date','employee_id','employee_name'));
+      
+       
     }
 }

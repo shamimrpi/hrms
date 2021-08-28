@@ -34,6 +34,14 @@ Route::get('/', function () {
 		Route::get('/leave','LeaveController@index')->name('leave');
 		Route::get('/leave/create','LeaveController@create')->name('leave.create');
 		Route::post('/leave/store','LeaveController@store')->name('leave.store');
+		Route::get('/leave/edit/{id}','LeaveController@edit')->name('leave.edit');
+		Route::put('/leave/update/{id}','LeaveController@update')->name('leave.update');
+		Route::get('/leave/delete/{id}','LeaveController@delete')->name('leave.delete');
+		Route::get('/leave/approve','LeaveApproveController@approve')->name('leave.approve');
+		Route::get('/leave/accept/{id}','LeaveApproveController@accept')->name('leave.accept');
+		Route::get('/leave/cancel/{id}','LeaveApproveController@cancel')->name('leave.cancel');
+		Route::get('/leave/approve/all','LeaveApproveController@leaveApproveAll')->name('leave.approve.all');
+		Route::get('/leave/cancel/all','LeaveApproveController@leaveCancelAll')->name('leave.cancel.all');
 
 		Route::get('/attendance','AttendanceControler@index')->name('attendance');
 		Route::get('/attendance/create','AttendanceControler@create')->name('attendance.create');
@@ -43,6 +51,7 @@ Route::get('/', function () {
 		Route::get('/attendance/show/{date}','AttendanceControler@show')->name('attendance.show');
 		Route::get('/attendance/all','AttendanceControler@attendance')->name('attendance.all');
 		Route::post('/attendance/allShow','AttendanceControler@attendanceGetAll')->name('attendance.getall');
+
 	});
 	Route::get('/logout','LoginController@logout')->name('logout');
 });

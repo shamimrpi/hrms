@@ -48,7 +48,7 @@
                           <td>{{$attendance->employee->staff_id}}</td>
                           <td>{{$attendance->employee->name}}</td>
                           <td>{{date('d/m/Y',strtotime($attendance->date))}}</td>
-                        <td>{{$attendance->status}}</td>
+                           <td>{{$attendance->status}}</td>
                         </tr>
                         @endforeach
                       </tbody>

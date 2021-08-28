@@ -32,50 +32,12 @@
                        
                                            
                       <div class="card-body">
-                        <form action="{{route('attendance.getall')}}" method="POST" id="searchForm">
-                          @csrf
-                          <div class="row">
-                            <div class="col-sm-4">
-                              <div class="form-group">
-                                 <label for="staff_id">Staff ID</label>
-                                 <select class="form-control" name="employee_id">
-                                  @foreach($users as $user)
-                                   <option value="{{$user->id}}" {{(@$employee_id == $user->id)?'selected':''}}>{{$user->staff_id}}</option>
-                                   @endforeach
-                                 </select>
-                              </div>
-                            </div>
-
-                            <div class="col-sm-4">
-                              <div class="form-group">
-                                 <label for="staff_id">Date</label>
-                                 <?php if(isset($attendances)) {?>
-                                  <input type="text" name="date" id="datepicker" placeholder="Enter Date" class="form-control" autocomplete="off" value="{{$date}}">
-                                 <?php } else {?>
-                                <input type="text" name="date" id="datepicker" placeholder="Enter Select Date" class="form-control" autocomplete="off" >
-                                 <?php } ?>
-
-                              </div>
-                            </div>
-                              <div class="col-sm-4">
-                              <div class="form-group">
-                                 
-                                <input type="submit" class="btn btn-info" value="Submit" style="margin-top: 30px">
-                              </div>
-                            </div>
-
-
-
-
-                          </div>
-                      </form>
+                   
                       <!-- //end form -->
-                      <?php if(isset($attendances)) { ?>
-                        <h2 class="text-center">Attendance of {{$employee_name}}</h2>
-                        <br>
-                          <table class="table table-hover">
+                           
+                       <table class="table table-hover">
                          <thead>
-                          <tr class="table-secondary">
+                          <tr>
                              <th>SL</th>
                              <th>Date</th>
                              <th>Status</th>
@@ -94,8 +56,7 @@
                            
                          </tbody>
                        </table>
-                      <?php  } ?>
-                 
+                   </div>
                 
   
         <!-- /.row -->
@@ -104,6 +65,10 @@
   </div>
 </div>
 </div>
+</div>
+</div>
+</div>
+
 @endsection
 @section('scripts')
 <script type="text/javascript">
